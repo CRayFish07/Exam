@@ -26,7 +26,11 @@
         <!-- 自动表更新 -->
         <property name="hbm2ddl.auto">update</property>
         
-       
+       	<mapping class="com.jae.model.Manager"/>
+       	<mapping class="com.jae.model.Student"/>
+       	<mapping class="com.jae.model.Question"/>
+       	<mapping class="com.jae.model.Paper"/>
+       	<mapping class="com.jae.model.Exam"/>
     </session-factory>
 
 </hibernate-configuration>
