@@ -6,10 +6,11 @@
 <struts>
 
 	
-	<package name="studentInfo" namespace="/" extends="struts-default">
-		
-		
-		
+	<package name="Exam" namespace="/" extends="struts-default">
+			<action name="student" class="com.jae.action.StudentAction">
+				<result name="success" type="redirect">/main.jsp</result>
+				<result name="error">/login.jsp</result>
+			</action>
 	</package>
 	
 
