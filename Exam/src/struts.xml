@@ -11,6 +11,9 @@
 				<result name="success" type="redirect">/main.jsp</result>
 				<result name="error">/login.jsp</result>
 			</action>
+			<action name="paper" class="com.jae.action.PaperAction">
+				<result name="success">/main.jsp</result>
+			</action>
 	</package>
 	
 

@@ -1,12 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
-</body>
-</html>
+<ul class="nav nav-pills nav-stacked">
+<li role="presentation"><img alt="" src="images/logo.png"></li>
+<li role="presentation" class="active "><a class="glyphicon glyphicon-home">&nbsp;首&nbsp;&nbsp;页</a></li>
+<li  role="presentation"><a class="glyphicon glyphicon-pencil" href="paper!list">&nbsp;在线考试</a></li>
+<li  role="presentation"><a class="glyphicon glyphicon-search">&nbsp;成绩查询</a></li>
+<li  role="presentation"><a class="glyphicon glyphicon-cog">&nbsp;密码修改</a></li>
+<li  role="presentation"><a class="glyphicon glyphicon-off">&nbsp;退出系统</a></li>
+</ul>
+
+
+	

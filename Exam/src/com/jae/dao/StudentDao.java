@@ -14,6 +14,7 @@ public class StudentDao {
 		query.setString("id", student.getId());
 		query.setString("password", student.getPassword());
 		Student rStudent = (Student) query.uniqueResult();
+		session.getTransaction().commit();;
 		return rStudent;
 	}
 }
