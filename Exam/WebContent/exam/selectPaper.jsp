@@ -15,7 +15,7 @@
 </script>
 <div class="data_list">
 	<div class="data_content">
-		<form action="paper!getPaper" method="post" onsubmit="return checkForm()">
+		<form action="paper!getPaperPage" method="post" onsubmit="return checkForm()">
 			<table width="40%" align="center" >
 				<tr>
 					<td height="120px"></td>

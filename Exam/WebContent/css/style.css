@@ -41,6 +41,7 @@ body{
 .data_list .data_exam_content{
 	margin-top: 15px;
 	padding-left: 30px;
+	font-size: 17px;
 }
 
 .data_list .select{
@@ -49,4 +50,31 @@ body{
 
 .data_list td{
 	padding-top: 10px;
+}
+
+.time{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.title{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+	font-size: 30px;
+}
+
+.ftitle{
+	text-align: right;
+	font-size: 20px;
+}
+
+.option label{
+	margin-bottom: 6px;
+	font-size: 18px;
+}
+.option input{
+	margin-top: 7px;
+	margin-bottom: 0px;
 }
