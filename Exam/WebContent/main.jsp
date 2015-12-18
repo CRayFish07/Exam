@@ -33,10 +33,12 @@
 
 		</div>
 		<div class="col-md-10">
-			<jsp:include page="<%=mainPage%>"></jsp:include>
 			<div>
-				<jsp:include page="/common/foot.jsp"></jsp:include>
+			<jsp:include page="<%=mainPage%>"></jsp:include>
 			</div>
+		<div>
+				<jsp:include page="/common/foot.jsp"></jsp:include>
+		</div>
 		</div>
 	</div>
 
