@@ -1,7 +1,9 @@
 package com.jae.action;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -28,9 +30,27 @@ public class ExamAction extends ActionSupport implements ServletRequestAware {
 	private QuestionDao questionDao = new QuestionDao();
 	private Exam exam = new Exam();
 	private ExamDao examDao = new ExamDao();
+	private Exam s_exam = new Exam();
+	private List<Exam> exams = new ArrayList<Exam>();
+	
+	
+	
+	public Exam getS_exam() {
+		return s_exam;
+	}
 
-	
-	
+	public void setS_exam(Exam s_exam) {
+		this.s_exam = s_exam;
+	}
+
+	public List<Exam> getExams() {
+		return exams;
+	}
+
+	public void setExams(List<Exam> exams) {
+		this.exams = exams;
+	}
+
 	public Exam getExam() {
 		return exam;
 	}
@@ -108,6 +128,13 @@ public class ExamAction extends ActionSupport implements ServletRequestAware {
 			}
 		}
 		return 0;
+	}
+	
+	public String list(){
+		exams = examDao.list(s_exam);
+		mainPage = "exam/examList.jsp";
+		s="3";
+		return SUCCESS;
 	}
 
 }
