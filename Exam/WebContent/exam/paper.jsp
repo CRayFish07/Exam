@@ -5,7 +5,7 @@
 
 
 <script type="text/javascript">
-	var totalTime = 1 * 60;
+	var totalTime = 5 * 60;
 	var useTime = 0, remainTime = totalTime;
 	function checkTime() {
 		useTime += 1;
@@ -56,6 +56,8 @@
 	</div>
 	<div class="data_exam_content">
 	<form action="exam!test" method="post" id="myForm">
+		<input type="text" name="exam.student.id" value="${currentStudent.id} ">
+		<input type="text" name="exam.paper.id" value="${paper.id} ">
 		<strong><big>一，单选题</big></strong>(每题20分，答错不得分)<br /> <br />
 		<c:forEach var="s" items="${squestions }" varStatus="status">
 			<strong>[&nbsp;${status.index+1 }&nbsp;]&nbsp;${s.subject} </strong>
@@ -77,13 +79,13 @@
 			<strong>[&nbsp;${status.index+1 }&nbsp;]&nbsp;${m.subject} </strong>
 			<div class="checkbox option">
 				<label class="checkbox"> <input type="checkbox"
-					name="id-r-${m.id }" value="A" /> ${m.optionA }
+					name="id-c-${m.id }" value="A" /> ${m.optionA }
 				</label> <label class="checkbox"> <input type="checkbox"
-					name="id-r-${m.id }" value="B" /> ${m.optionB }
+					name="id-c-${m.id }" value="B" /> ${m.optionB }
 				</label> <label class="checkbox"> <input type="checkbox"
-					name="id-r-${m.id }" value="C" /> ${m.optionC }
+					name="id-c-${m.id }" value="C" /> ${m.optionC }
 				</label><label class="checkbox"> <input type="checkbox"
-					name="id-r-${m.id }" value="D" /> ${m.optionD }
+					name="id-c-${m.id }" value="D" /> ${m.optionD }
 				</label>
 			</div>
 			<br />

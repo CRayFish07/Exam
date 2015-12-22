@@ -107,7 +107,7 @@ public class PaperAction extends ActionSupport {
 		}
 
 		squestions = this.getQuestion(squestions, 3);
-		mquestions = this.getQuestion(mquestions, 3);
+		mquestions = this.getQuestion(mquestions, 2);
 		mainPage = "exam/paper.jsp";
 		return SUCCESS;
 	}

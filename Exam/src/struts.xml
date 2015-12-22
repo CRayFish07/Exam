@@ -14,6 +14,9 @@
 			<action name="paper" class="com.jae.action.PaperAction">
 				<result name="success">/main.jsp</result>
 			</action>
+			<action name="exam" class="com.jae.action.ExamAction">
+				<result name="success">/main.jsp</result>
+			</action>
 	</package>
 	
 
