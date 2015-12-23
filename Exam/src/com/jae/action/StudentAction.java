@@ -157,7 +157,7 @@ public class StudentAction extends ActionSupport implements ServletRequestAware 
 		}
 		int count = studentDao.count(s_student);
 		PageBean pb = new PageBean(Integer.parseInt(page), 3);
-		pageCode = PageUtil.genPagation("${pageContext.request.contextPath}/student!list", count, Integer.parseInt(page), 3);
+		pageCode = PageUtil.genPagation(request.getContextPath()+"/student!list", count, Integer.parseInt(page), 3);
 		students = studentDao.list(s_student,pb);
 		s ="2";
 		return SUCCESS;

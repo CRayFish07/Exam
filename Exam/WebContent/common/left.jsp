@@ -29,7 +29,7 @@
 		<li role="presentation"><img alt="" src="images/logo.png">
 			<input id="sh" type="hidden" value="${s} " /></li>
 		<li id="l1" role="presentation" class="active""><a
-			class="glyphicon glyphicon-home" href="main.jsp?mainPage=''">&nbsp;首&nbsp;&nbsp;页</a></li>
+			class="glyphicon glyphicon-home" href="/main.jsp?mainPage=''">&nbsp;首&nbsp;&nbsp;页</a></li>
 		<li id="l2" role="presentation"><a
 			class="glyphicon glyphicon-pencil" href="paper!list">&nbsp;在线考试</a></li>
 		<li id="l3" role="presentation"><a
