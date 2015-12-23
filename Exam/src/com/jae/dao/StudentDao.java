@@ -1,5 +1,7 @@
 package com.jae.dao;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -31,6 +33,18 @@ public class StudentDao {
 		session.beginTransaction();
 		session.merge(student);
 		session.getTransaction().commit();
+	}
+	
+	public List<Student> list(){
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		StringBuffer hsql = new StringBuffer();
+		hsql.append("from Student");
+		Query query = session.createQuery(hsql.toString());
+		@SuppressWarnings("unchecked")
+		List<Student> students = query.list();
+		session.getTransaction().commit();
+		return students;
 	}
 	
 }

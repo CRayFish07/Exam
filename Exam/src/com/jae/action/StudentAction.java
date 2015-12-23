@@ -1,5 +1,7 @@
 package com.jae.action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -22,8 +24,17 @@ public class StudentAction extends ActionSupport implements ServletRequestAware 
 	private Student student;
 	private String mainPage;
 	private String s;
+	private List<Student> students;
 	
 	
+
+	public List<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
 
 	public String getS() {
 		return s;
@@ -92,6 +103,13 @@ public class StudentAction extends ActionSupport implements ServletRequestAware 
 	public String layout(){
 		request.getSession().invalidate();
 		return "layout";
+	}
+	
+	public String list(){
+		mainPage = "student/studentList.jsp";
+		students = studentDao.list();
+		s ="2";
+		return SUCCESS;
 	}
 	
 }
