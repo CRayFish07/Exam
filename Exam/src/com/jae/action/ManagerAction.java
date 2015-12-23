@@ -5,21 +5,21 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.interceptor.ServletRequestAware;
 
-import com.jae.dao.StudentDao;
-import com.jae.model.Student;
+import com.jae.dao.ManagerDao;
+import com.jae.model.Manager;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class StudentAction extends ActionSupport implements ServletRequestAware {
+public class ManagerAction extends ActionSupport implements ServletRequestAware {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private StudentDao studentDao = new StudentDao();
+	private ManagerDao managerDao = new ManagerDao();
 	
 	private HttpServletRequest request;
 	private String error;
-	private Student student;
+	private Manager manager;
 	private String mainPage;
 	private String s;
 	
@@ -41,12 +41,13 @@ public class StudentAction extends ActionSupport implements ServletRequestAware 
 		this.mainPage = mainPage;
 	}
 
-	public Student getStudent() {
-		return student;
+
+	public Manager getManager() {
+		return manager;
 	}
 
-	public void setStudent(Student student) {
-		this.student = student;
+	public void setManager(Manager manager) {
+		this.manager = manager;
 	}
 
 	public String getError() {
@@ -63,7 +64,7 @@ public class StudentAction extends ActionSupport implements ServletRequestAware 
 
 	public String login(){
 		HttpSession session = request.getSession();
-		Student currentUser = studentDao.login(student);
+		Manager currentUser = managerDao.login(manager);
 		if(currentUser!=null){
 			session.setAttribute("currentUser", currentUser);
 			s="1";
@@ -80,14 +81,14 @@ public class StudentAction extends ActionSupport implements ServletRequestAware 
 		return SUCCESS;
 	}
 	
-	public String save(){
+	/*public String save(){
 		Student student1 = studentDao.getStudent(student.getId());
 		student1.setPassword(student.getPassword());
 		studentDao.saveStudent(student1);
 		mainPage = "student/updateSuccess.jsp";
 		s="4";
 		return SUCCESS;
-	}
+	}*/
 	
 	public String layout(){
 		request.getSession().invalidate();

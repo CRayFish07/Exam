@@ -134,7 +134,7 @@ public class ExamAction extends ActionSupport implements ServletRequestAware {
 	
 	public String list(){
 		HttpSession session = request.getSession();
-		s_exam.setStudent((Student) session.getAttribute("currentStudent"));
+		s_exam.setStudent((Student) session.getAttribute("currentUser"));
 		exams = examDao.list(s_exam);
 		mainPage = "exam/examList.jsp";
 		s="3";

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="examList" >
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-	<div  class="title" align="center">${currentStudent.name}的成绩 </div>
+	<div  class="title" align="center">${currentUser.name}的成绩 </div>
 	<table class="table table-bordered table-hover ">
 		<tr>
 			<td>编号</td>

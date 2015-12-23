@@ -11,7 +11,7 @@
 			return false;
 		}
 
-		if (oldPassword != '${currentStudent.password}') {
+		if (oldPassword != '${currentUser.password}') {
 			alert("原密码错误！");
 			return false;
 		}
@@ -37,7 +37,7 @@
 			<table class="table ">
 				<tr>
 					<td>用户名：</td>
-					<td><input name="student.id" value="${currentStudent.id} "
+					<td><input name="student.id" value="${currentUser.id} "
 						readonly="readonly" /></td>
 				</tr>
 				<tr>
