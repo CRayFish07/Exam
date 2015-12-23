@@ -1,20 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<script type="text/javascript">
+	function checkClick() {
+		var sl;
+		
+		document.getElementById("l5").className = "active";
+		for (var i = 1; i <= 4; i++) {
+		var className=document.getElementById("l" + i).className;
+			if (className=="active") {
+				document.getElementById("l" + i).className="";
+				sl=i;
+			}
+		}
+		if (confirm("确定要退出系统吗？")) {
+			window.location.href = "student!layout";
+		} else {
+			document.getElementById("l5").className = "";
+			document.getElementById("l"+sl).className = "active";
+		}
 
+	}
+</script>
 <ul class="nav nav-pills nav-stacked">
 	<li role="presentation"><img alt="" src="images/logo.png"> <input
 		id="sh" type="hidden" value="${s} " /></li>
-	<li id="l1" role="presentation" class="active" "><a
+	<li id="l1" role="presentation" class="active""><a
 		class="glyphicon glyphicon-home" href="main.jsp?mainPage=''">&nbsp;首&nbsp;&nbsp;页</a></li>
-	<li id="l2" role="presentation" "><a
-		class="glyphicon glyphicon-pencil" href="paper!list?s=2">&nbsp;在线考试</a></li>
-	<li id="l3" role="presentation" "><a
-		class="glyphicon glyphicon-search" href="exam!list?s=3&&s_exam.student.id=${currentStudent.id} ">&nbsp;成绩查询</a></li>
-	<li id="l4" role="presentation""><a
-		class="glyphicon glyphicon-cog">&nbsp;密码修改</a></li>
-	<li id="l5" role="presentation" "><a
-		class="glyphicon glyphicon-off">&nbsp;退出系统</a></li>
+	<li id="l2" role="presentation"><a
+		class="glyphicon glyphicon-pencil" href="paper!list">&nbsp;在线考试</a></li>
+	<li id="l3" role="presentation"><a
+		class="glyphicon glyphicon-search" href="exam!list">&nbsp;成绩查询</a></li>
+	<li id="l4" role="presentation"><a class="glyphicon glyphicon-cog"
+		href="student!preSave">&nbsp;密码修改</a></li>
+	<li id="l5" name="l5" role="presentation"><a
+		class="glyphicon glyphicon-off" onclick="checkClick()">&nbsp;退出系统</a></li>
 </ul>
 <script type="text/javascript">
 	var s = $("#sh").val();

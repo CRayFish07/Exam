@@ -8,12 +8,14 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.interceptor.ServletRequestAware;
 
 import com.jae.dao.ExamDao;
 import com.jae.dao.QuestionDao;
 import com.jae.model.Exam;
+import com.jae.model.Student;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ExamAction extends ActionSupport implements ServletRequestAware {
@@ -131,6 +133,8 @@ public class ExamAction extends ActionSupport implements ServletRequestAware {
 	}
 	
 	public String list(){
+		HttpSession session = request.getSession();
+		s_exam.setStudent((Student) session.getAttribute("currentStudent"));
 		exams = examDao.list(s_exam);
 		mainPage = "exam/examList.jsp";
 		s="3";

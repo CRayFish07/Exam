@@ -1,8 +1,8 @@
-body{
+body {
 	margin-left: -30px;
 }
 
-.dh{
+.dh {
 	height: 630px;
 }
 
@@ -15,79 +15,98 @@ body{
 	width: 130px;
 }
 
-
-.defaultPage{
-	text-align:center;
+.defaultPage {
+	text-align: center;
 	margin-top: 120px;
 	font-size: 50px;
 	color: red;
 	height: 450px;
 }
 
-.foot{
+.foot {
 	text-align: center;
-	margin-top:18px;
+	margin-top: 18px;
 	margin-bottom: 18px;
 }
 
-.data_list{
+.data_list {
 	margin-top: 10px;
 }
 
-.data_list .data_content{
+.data_list .data_content {
 	margin-top: 15px;
 }
 
-.data_list .data_exam_content{
+.data_list .data_exam_content {
 	margin-top: 15px;
 	padding-left: 30px;
 	font-size: 17px;
 }
 
-.data_list .select{
-	float:left;
+.data_list .select {
+	float: left;
 }
 
-.data_list td{
+.data_list td {
 	padding-top: 10px;
 }
 
-.time{
+.time {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	text-align: center;
 }
 
-.title{
+.title {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	text-align: center;
 	font-size: 30px;
 }
 
-.ftitle{
+.ftitle {
 	text-align: right;
 	font-size: 20px;
 }
 
-.option label{
+.option label {
 	margin-bottom: 6px;
 	font-size: 18px;
 }
-.option input{
+
+.option input {
 	margin-top: 7px;
 	margin-bottom: 0px;
 }
 
-.examList{
-	height: 450px;
+.examList {
+	height: auto !important;
+	min-height: 500px;
 }
 
-.examList .title{
+}
+.examList .title {
 	text-align: center;
 	font-size: 20px;
 }
 
-.examList table{
+.examList table {
+	text-align: center;
+}
+
+.updatePassword{
+	height: auto !important;
+	min-height: 500px;
+}
+
+.updatePassword .title{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+	font-size: 30px;
+}
+
+.updatePassword table{
+	width: 40%;
 	text-align: center;
 }

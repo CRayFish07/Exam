@@ -8,8 +8,9 @@
 	
 	<package name="Exam" namespace="/" extends="struts-default">
 			<action name="student" class="com.jae.action.StudentAction">
-				<result name="success" type="redirect">/main.jsp</result>
+				<result name="success">/main.jsp</result>
 				<result name="error">/login.jsp</result>
+				<result name="layout" type="redirect">/login.jsp</result>
 			</action>
 			<action name="paper" class="com.jae.action.PaperAction">
 				<result name="success">/main.jsp</result>
