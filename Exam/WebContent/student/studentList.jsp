@@ -4,6 +4,23 @@
 <div class="examList">
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 	<div class="title" align="center">考生信息</div>
+	<form action="student!list" method="post" class="form-inline">
+		<div align="center" class="search">
+			<div class="form-group">
+				<label >考号:</label> <input type="text"
+					class="form-control" id="s_student.id" name="s_student.id" value="${s_student.id} ">
+			</div>
+			&nbsp;
+			<div class="form-group">
+				<label >姓名:</label> <input type="text"
+					class="form-control" id="s_student.name" name="s_student.name" value="${s_student.name }">
+			</div>
+			<button type="submit" class="btn btn-primary">查询</button>
+		</div>
+	</form>
+	<div class="add">
+		<button type="submit" class="btn btn-success btn-sm">添加考生</button>
+	</div>
 	<table class="table table-bordered table-hover ">
 		<tr>
 			<td>编号</td>
@@ -30,4 +47,11 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<div align="center">
+		<nav>
+			<ul class="pagination">${pageCode}
+			</ul>
+		</nav>
+	</div>
+
 </div>

@@ -110,3 +110,10 @@ body {
 	width: 40%;
 	text-align: center;
 }
+.examList .search{
+	margin-bottom: 20px;
+}
+.examList .add{
+	margin-bottom: 15px;
+	float:right;
+}

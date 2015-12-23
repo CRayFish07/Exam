@@ -8,8 +8,12 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.interceptor.ServletRequestAware;
 
 import com.jae.dao.StudentDao;
+import com.jae.model.PageBean;
 import com.jae.model.Student;
+import com.jae.util.PageUtil;
+import com.jae.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
+
 
 public class StudentAction extends ActionSupport implements ServletRequestAware {
 	/**
@@ -25,8 +29,37 @@ public class StudentAction extends ActionSupport implements ServletRequestAware 
 	private String mainPage;
 	private String s;
 	private List<Student> students;
+	private Student s_student;
+	private String page;
+	private String pageCode;
 	
-	
+
+
+	public String getPageCode() {
+		return pageCode;
+	}
+
+	public void setPageCode(String pageCode) {
+		this.pageCode = pageCode;
+	}
+
+	public String getPage() {
+		return page;
+	}
+
+	public void setPage(String page) {
+		this.page = page;
+	}
+
+
+
+	public Student getS_student() {
+		return s_student;
+	}
+
+	public void setS_student(Student s_student) {
+		this.s_student = s_student;
+	}
 
 	public List<Student> getStudents() {
 		return students;
@@ -107,7 +140,25 @@ public class StudentAction extends ActionSupport implements ServletRequestAware 
 	
 	public String list(){
 		mainPage = "student/studentList.jsp";
-		students = studentDao.list();
+		HttpSession session = request.getSession();
+		if(StringUtil.isEmpty(page)){
+			page="1";
+		}
+		if(s_student==null){
+			Object o=session.getAttribute("s_student");
+			if(o==null){
+				s_student = new Student();
+			}else{
+				s_student = (Student) o;
+				session.setAttribute("s_student", s_student);
+			}
+		}else{
+			session.setAttribute("s_student", s_student);
+		}
+		int count = studentDao.count(s_student);
+		PageBean pb = new PageBean(Integer.parseInt(page), 3);
+		pageCode = PageUtil.genPagation("${pageContext.request.contextPath}/student!list", count, Integer.parseInt(page), 3);
+		students = studentDao.list(s_student,pb);
 		s ="2";
 		return SUCCESS;
 	}
