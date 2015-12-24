@@ -33,7 +33,7 @@
 <div class="updatePassword">
 	<div class="title">修改密码</div>
 	<div  align="center">
-		<form action="student!save" method="post" onsubmit="return checkForm()" class="form-horizontal"> 
+		<form action="student!update" method="post" onsubmit="return checkForm()" class="form-horizontal"> 
 			<table class="table ">
 				<tr>
 					<td>用户名：</td>

@@ -19,7 +19,7 @@
 		</div>
 	</form>
 	<div class="add">
-		<button type="submit" class="btn btn-success btn-sm">添加考生</button>
+		<button type="submit" class="btn btn-success btn-sm" onclick="javascript:window.location='student!preSave'">添加考生</button>
 	</div>
 	<table class="table table-bordered table-hover ">
 		<tr>

@@ -11,6 +11,7 @@
 				<result name="success">/main.jsp</result>
 				<result name="error">/login.jsp</result>
 				<result name="layout" type="redirect">/login.jsp</result>
+				<result name="save" type="redirectAction">/student!list</result>
 			</action>
 			<action name="manager" class="com.jae.action.ManagerAction">
 				<result name="success">/main.jsp</result>

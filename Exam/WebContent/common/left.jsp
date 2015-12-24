@@ -35,7 +35,7 @@
 		<li id="l3" role="presentation"><a
 			class="glyphicon glyphicon-search" href="exam!list">&nbsp;成绩查询</a></li>
 		<li id="l4" role="presentation"><a
-			class="glyphicon glyphicon-cog" href="student!preSave">&nbsp;密码修改</a></li>
+			class="glyphicon glyphicon-cog" href="student!preUpdate">&nbsp;密码修改</a></li>
 		<li id="l5" name="l5" role="presentation"><a
 			class="glyphicon glyphicon-off" onclick="checkClick()">&nbsp;退出系统</a></li>
 	</ul>
