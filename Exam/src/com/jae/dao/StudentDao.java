@@ -75,4 +75,11 @@ public class StudentDao {
 		return i;
 	}
 	
+	public void delete(Student student){
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		session.delete(student);
+		session.getTransaction().commit();
+	}
+	
 }

@@ -1,8 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script type="text/javascript">
+	function checkDelete(id){
+		if(confirm("确定要删除吗？")){
+			$.post("student!delete",{id:id},
+					function(result){
+				var result = eval("("+result+")");
+				if(result){
+					alert("删除成功！");
+					window.location.href="${pageContext.request.contextPath}/student!list";
+				}else{
+					alert("删除失败！");
+				}
+			});
+		}
+	}
+	
+</script>
 <div class="examList">
-	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 	<div class="title" align="center">考生信息</div>
 	<form action="student!list" method="post" class="form-inline">
 		<div align="center" class="search">
@@ -41,8 +58,8 @@
 				<td>${student.sex }</td>
 				<td>${student.prefession }</td>
 				<td>
-					<button type="button" class="btn btn-info">修改</button>
-					<button type="button" class="btn btn-danger">删除</button>
+					<button type="button" class="btn btn-info" onclick="javascript:window.location='student!preSave?id=${student.id}'">修改</button>
+					<button type="button" class="btn btn-danger" onclick="checkDelete('${student.id}')">删除</button>
 				</td>
 			</tr>
 		</c:forEach>

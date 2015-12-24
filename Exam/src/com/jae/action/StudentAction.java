@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 
 import com.jae.dao.StudentDao;
@@ -12,8 +13,11 @@ import com.jae.model.PageBean;
 import com.jae.model.Student;
 import com.jae.util.DateUtil;
 import com.jae.util.PageUtil;
+import com.jae.util.ResponseUtil;
 import com.jae.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
+
+import net.sf.json.JSONObject;
 
 public class StudentAction extends ActionSupport implements ServletRequestAware {
 	/**
@@ -33,6 +37,15 @@ public class StudentAction extends ActionSupport implements ServletRequestAware 
 	private String page;
 	private String pageCode;
 	private String title;
+	private String id;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getTitle() {
 		return title;
@@ -169,21 +182,32 @@ public class StudentAction extends ActionSupport implements ServletRequestAware 
 	}
 
 	public String preSave() {
-		if (student ==null) {
+		if (StringUtil.isEmpty(id)) {
 			title = "添加考生信息";
-		}else{
+		} else {
 			title = "修改考生信息";
+			student = studentDao.getStudent(id);
 		}
+		s = "2";
 		mainPage = "/student/saveStudent.jsp";
 		return SUCCESS;
 	}
 
-	public String save() throws Exception{
+	public String save() throws Exception {
 		if (StringUtil.isEmpty(student.getId())) {
-			student.setId("JS"+DateUtil.getCurrentDateStr());
+			student.setId("JS" + DateUtil.getCurrentDateStr());
 		}
 		studentDao.saveStudent(student);
 		return "save";
+	}
+
+	public void delete() throws Exception {
+		student = studentDao.getStudent(id);
+		studentDao.delete(student);
+		JSONObject result = new JSONObject();
+		result.put("success", true);
+		ResponseUtil.write(result, ServletActionContext.getResponse());
+
 	}
 
 }

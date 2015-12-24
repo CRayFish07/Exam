@@ -42,7 +42,7 @@
 					<td>
 						<div class="form-group">
 							<label for="name">姓名:</label> <input type="text"
-								class="form-control" id="name" name="student.name">
+								class="form-control" id="name" name="student.name" value="${ student.name}">
 						</div>
 					</td>
 					<td>
@@ -50,8 +50,8 @@
 							<label for="sex">性别:</label> <select class="form-control"
 								id="sex" name="student.sex">
 								<option value="">请选择性别：</option>
-								<option value="男">男</option>
-								<option value="女">女</option>
+								<option value="男" ${student.sex=='男'?'selected':'' }>男</option>
+								<option value="女" ${student.sex=='女'?'selected':'' }>女</option>
 							</select>
 						</div>
 					</td>
@@ -60,7 +60,7 @@
 					<td>
 						<div class="form-group">
 							<label for="cardNo">身份证:</label> <input type="text"
-								class="form-control" id="cardNo" name="student.cardNo">
+								class="form-control" id="cardNo" name="student.cardNo" value="${student.cardNo }">
 						</div>
 					</td>
 					<td></td>
@@ -68,19 +68,20 @@
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="password">密码:</label> <input type="password"
-								class="form-control" id="password" name="student.password">
+							<label for="password">密码:</label> <input type="text"
+								class="form-control" id="password" name="student.password" value="${student.password }">
 						</div>
 					</td>
 					<td>
 					<div class="form-group">
 							<label for="prefession">专业:</label> <input type="text"
-								class="form-control" id="prefession" name="student.prefession">
+								class="form-control" id="prefession" name="student.prefession" value="${student.prefession}">
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<td>
+					<input type="hidden" value="${student.id }" name="student.id">
 						<button type="submit" class="btn btn-primary">提交</button>
 					</td>
 					<td>
