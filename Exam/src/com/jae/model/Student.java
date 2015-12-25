@@ -1,10 +1,19 @@
 package com.jae.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
+
 
 @Entity
 @Table(name="t_student")
@@ -16,6 +25,7 @@ public class Student {
 	private String prefession;
 	private String cardNo;
 	private String flag="2";
+	private  List<Exam> exams = new ArrayList<Exam>();
 	
 	@Id
 	@Column(name="id",length=40,unique=true,nullable=false)
@@ -72,6 +82,14 @@ public class Student {
 	}
 	public void setFlag(String flag) {
 		this.flag = flag;
+	}
+	@OneToMany(mappedBy="student")
+	@Cascade(CascadeType.DELETE)
+	public List<Exam> getExams() {
+		return exams;
+	}
+	public void setExams(List<Exam> exams) {
+		this.exams = exams;
 	}
 	
 	

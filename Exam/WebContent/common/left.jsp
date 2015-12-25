@@ -49,7 +49,7 @@
 		<li id="l2" role="presentation"><a
 			class="glyphicon glyphicon-pencil" href="student!list">&nbsp;考生信息管理</a></li>
 		<li id="l3" role="presentation"><a
-			class="glyphicon glyphicon-search" href="exam!list">&nbsp;考生成绩查询</a></li>
+			class="glyphicon glyphicon-search" href="exam!getList">&nbsp;考生成绩查询</a></li>
 		<li id="l4" role="presentation"><a
 			class="glyphicon glyphicon-cog" href="student!preSave">&nbsp;试卷管理</a></li>
 		<li id="l6" role="presentation"><a

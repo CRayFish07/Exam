@@ -207,7 +207,6 @@ public class StudentAction extends ActionSupport implements ServletRequestAware 
 		JSONObject result = new JSONObject();
 		result.put("success", true);
 		ResponseUtil.write(result, ServletActionContext.getResponse());
-
 	}
 
 }

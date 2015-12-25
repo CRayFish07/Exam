@@ -1,6 +1,5 @@
 package com.jae.action;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -15,7 +14,10 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 import com.jae.dao.ExamDao;
 import com.jae.dao.QuestionDao;
 import com.jae.model.Exam;
+import com.jae.model.PageBean;
 import com.jae.model.Student;
+import com.jae.util.PageUtil;
+import com.jae.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ExamAction extends ActionSupport implements ServletRequestAware {
@@ -27,16 +29,36 @@ public class ExamAction extends ActionSupport implements ServletRequestAware {
 
 	private HttpServletRequest request;
 	private String mainPage;
+	private String pageCode;
+	private String page;
 	private String s="2";
 	
 	private QuestionDao questionDao = new QuestionDao();
-	private Exam exam = new Exam();
-	private ExamDao examDao = new ExamDao();
-	private Exam s_exam = new Exam();
-	private List<Exam> exams = new ArrayList<Exam>();
+	
+	
+	private ExamDao examDao =new ExamDao();
+	private Exam s_exam;
+	private Exam exam ;
+	private List<Exam> exams;
 	
 	
 	
+	public String getPageCode() {
+		return pageCode;
+	}
+
+	public void setPageCode(String pageCode) {
+		this.pageCode = pageCode;
+	}
+
+	public String getPage() {
+		return page;
+	}
+
+	public void setPage(String page) {
+		this.page = page;
+	}
+
 	public Exam getS_exam() {
 		return s_exam;
 	}
@@ -134,11 +156,37 @@ public class ExamAction extends ActionSupport implements ServletRequestAware {
 	
 	public String list(){
 		HttpSession session = request.getSession();
+		s_exam = new Exam();
 		s_exam.setStudent((Student) session.getAttribute("currentUser"));
-		exams = examDao.list(s_exam);
+		exams = examDao.list(s_exam,null);
 		mainPage = "exam/examList.jsp";
 		s="3";
 		return SUCCESS;
+	}
+	
+	public String getList(){
+		if(StringUtil.isEmpty(page)){
+			page ="1";
+		}
+		HttpSession session = request.getSession();
+		if(s_exam==null){
+			Object object =session.getAttribute("s_exam");
+			if(object!=null){
+				s_exam = (Exam) object;
+				session.setAttribute("s_exam", s_exam);
+			}else{
+				s_exam = null;
+			}
+		}else{
+			session.setAttribute("s_exam", s_exam);
+		}
+		PageBean pb = new PageBean(Integer.parseInt(page), 5);
+		int count = examDao.count(s_exam);
+		pageCode = PageUtil.genPagation(request.getContextPath()+"/exam!getList", count, Integer.parseInt(page), 5);
+		exams = examDao.list(s_exam, pb);
+		mainPage = "exam/allExamList.jsp";
+		s="3";
+ 		return SUCCESS;
 	}
 
 }
