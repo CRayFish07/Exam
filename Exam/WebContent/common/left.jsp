@@ -51,7 +51,7 @@
 		<li id="l3" role="presentation"><a
 			class="glyphicon glyphicon-search" href="exam!getList">&nbsp;考生成绩查询</a></li>
 		<li id="l4" role="presentation"><a
-			class="glyphicon glyphicon-cog" href="student!preSave">&nbsp;试卷管理</a></li>
+			class="glyphicon glyphicon-cog" href="paper!paperList">&nbsp;试卷管理</a></li>
 		<li id="l6" role="presentation"><a
 			class="glyphicon glyphicon-cog" href="student!preSave">&nbsp;题目管理</a></li>
 		<li id="l5" name="l5" role="presentation"><a

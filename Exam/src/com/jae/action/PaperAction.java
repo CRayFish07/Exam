@@ -6,10 +6,16 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+import org.apache.struts2.ServletActionContext;
+
 import com.jae.dao.PaperDao;
+import com.jae.dao.QuestionDao;
 import com.jae.model.Paper;
 import com.jae.model.Question;
+import com.jae.util.ResponseUtil;
 import com.opensymphony.xwork2.ActionSupport;
+
+import net.sf.json.JSONObject;
 
 public class PaperAction extends ActionSupport {
 
@@ -19,6 +25,7 @@ public class PaperAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	private PaperDao paperDao = new PaperDao();
+	private QuestionDao questionDao = new QuestionDao();
 
 	private String mainPage;
 	private List<Paper> papers = new ArrayList<Paper>();
@@ -127,4 +134,22 @@ public class PaperAction extends ActionSupport {
 		return resultQuestions;
 	}
 
+	public String paperList(){
+		mainPage = "paper/paperList.jsp";
+		papers = paperDao.list();
+		s=4;
+		return SUCCESS;
+	}
+	
+	public void delete() throws Exception{
+		paper = paperDao.getPaper(paperId);
+		JSONObject result = new JSONObject();
+		if(questionDao.exitQuestion(paperId)){
+			result.put("error", "该试卷下有题目无法删除！");
+		}else{
+			paperDao.delete(paper);
+			result.put("Success", true);
+		}
+		ResponseUtil.write(result, ServletActionContext.getResponse());
+	}
 }
