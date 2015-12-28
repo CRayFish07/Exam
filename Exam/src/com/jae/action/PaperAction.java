@@ -1,6 +1,7 @@
 package com.jae.action;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -13,6 +14,7 @@ import com.jae.dao.QuestionDao;
 import com.jae.model.Paper;
 import com.jae.model.Question;
 import com.jae.util.ResponseUtil;
+import com.jae.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
 
 import net.sf.json.JSONObject;
@@ -34,9 +36,18 @@ public class PaperAction extends ActionSupport {
 	private List<Question> squestions = new ArrayList<Question>();
 	private List<Question> mquestions = new ArrayList<Question>();
 	private int s=2;
+	private String title;
 
 	
 	
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
 	public int getS() {
 		return s;
@@ -151,5 +162,25 @@ public class PaperAction extends ActionSupport {
 			result.put("Success", true);
 		}
 		ResponseUtil.write(result, ServletActionContext.getResponse());
+	}
+	
+	public String preSave(){
+		if(StringUtil.isNotEmpty(paperId)){
+			title = "ÐÞ¸ÄÊÔ¾í";
+			paper = paperDao.getPaper(paperId);
+		}else{
+			title = "Ìí¼ÓÊÔ¾í";
+		}
+		mainPage = "paper/savePaper.jsp";
+		s=4;
+		return SUCCESS;
+	}
+	
+	public String save(){
+		if(StringUtil.isNotEmpty(paperId)){
+			paper.setJoinDate(new Date());
+		}
+		paperDao.save(paper);
+		return "save";
 	}
 }

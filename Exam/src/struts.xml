@@ -20,6 +20,7 @@
 			</action>
 			<action name="paper" class="com.jae.action.PaperAction">
 				<result name="success">/main.jsp</result>
+				<result name="save" type="redirectAction">/paper!paperList</result>
 			</action>
 			<action name="exam" class="com.jae.action.ExamAction">
 				<result name="success">/main.jsp</result>

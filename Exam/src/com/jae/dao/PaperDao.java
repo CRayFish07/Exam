@@ -33,4 +33,11 @@ public class PaperDao {
 		session.delete(paper);
 		session.getTransaction().commit();
 	}
+	
+	public void save(Paper paper){
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		session.merge(paper);
+		session.getTransaction().commit();
+	}
 }

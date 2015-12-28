@@ -23,7 +23,7 @@
 	<div class="title" align="center">考试试卷</div>
 	<div class="add">
 		<button type="submit" class="btn btn-success btn-sm"
-			onclick="javascript:window.location='student!preSave'">添加试卷</button>
+			onclick="javascript:window.location='paper!preSave'">添加试卷</button>
 	</div>
 	<table class="table table-bordered table-hover ">
 		<tr>
@@ -41,7 +41,7 @@
 						pattern="yyyy-MM-dd HH:mm" /></td>
 				<td>
 					<button type="button" class="btn btn-info"
-						onclick="javascript:window.location='student!preSave?id=${paper.id}'">修改</button>
+						onclick="javascript:window.location='paper!preSave?paperId=${paper.id}'">修改</button>
 					<button type="button" class="btn btn-danger"
 						onclick="checkDelete('${paper.id}')">删除</button>
 				</td>

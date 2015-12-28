@@ -121,3 +121,12 @@ body {
 .saveStudent table{
 	width: 45%;
 }
+
+.savePaper table{
+	width: 35%
+}
+
+.savePaper label{
+	margin-top: 5px;
+	font-size: 17px;
+}
