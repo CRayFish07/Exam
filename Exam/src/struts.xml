@@ -25,6 +25,9 @@
 			<action name="exam" class="com.jae.action.ExamAction">
 				<result name="success">/main.jsp</result>
 			</action>
+			<action name="question" class="com.jae.action.QuestionAction">
+				<result name="success">/main.jsp</result>
+			</action>
 	</package>
 	
 

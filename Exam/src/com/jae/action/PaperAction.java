@@ -177,7 +177,7 @@ public class PaperAction extends ActionSupport {
 	}
 	
 	public String save(){
-		if(StringUtil.isNotEmpty(paperId)){
+		if(StringUtil.isEmpty(paperId)){
 			paper.setJoinDate(new Date());
 		}
 		paperDao.save(paper);

@@ -53,7 +53,7 @@
 		<li id="l4" role="presentation"><a
 			class="glyphicon glyphicon-cog" href="paper!paperList">&nbsp;试卷管理</a></li>
 		<li id="l6" role="presentation"><a
-			class="glyphicon glyphicon-cog" href="student!preSave">&nbsp;题目管理</a></li>
+			class="glyphicon glyphicon-cog" href="question!list">&nbsp;题目管理</a></li>
 		<li id="l5" name="l5" role="presentation"><a
 			class="glyphicon glyphicon-off" onclick="checkClick()">&nbsp;退出系统</a></li>
 	</ul>
@@ -66,7 +66,7 @@
 	if (s == null || s == " ") {
 		document.getElementById("l1").className = "active"
 	} else {
-		for (var i = 1; i <= 5; i++) {
+		for (var i = 1; i <= 6; i++) {
 			if (i == s) {
 				document.getElementById("l" + i).className = "active";
 			} else {
