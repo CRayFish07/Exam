@@ -5,9 +5,8 @@
 <script type="text/javascript">
 	function checkDelete(id) {
 		if (confirm("确定要删除吗？")) {
-			$
-					.post(
-							"student!delete",
+			$.post(
+							"question!delete",
 							{
 								id : id
 							},
@@ -15,7 +14,7 @@
 								var result = eval("(" + result + ")");
 								if (result) {
 									alert("删除成功！");
-									window.location.href = "${pageContext.request.contextPath}/student!list";
+									window.location.href = "${pageContext.request.contextPath}/question!list";
 								} else {
 									alert("删除失败！");
 								}
@@ -61,11 +60,11 @@
 				<td>${question.paper.paperName }</td>
 				<td>
 				<button type="button" class="btn btn-info"
-						onclick="javascript:window.location='student!preSave?id=${student.id}'">查看详情</button>
+						onclick="javascript:window.location='question!getQuestionMsg?id=${question.id}'">查看详情</button>
 					<button type="button" class="btn btn-info"
 						onclick="javascript:window.location='student!preSave?id=${student.id}'">修改</button>
 					<button type="button" class="btn btn-danger"
-						onclick="checkDelete('${student.id}')">删除</button>
+						onclick="checkDelete('${question.id}')">删除</button>
 				</td>
 			</tr>
 		</c:forEach>

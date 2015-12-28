@@ -65,4 +65,11 @@ public class QuestionDao {
 		session.getTransaction().commit();
 		return i;
 	}
+
+	public void delete(Question question) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		session.delete(question);
+		session.getTransaction().commit();
+	}
 }

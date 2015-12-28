@@ -5,15 +5,18 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 
 import com.jae.dao.QuestionDao;
 import com.jae.model.PageBean;
 import com.jae.model.Question;
 import com.jae.util.PageUtil;
+import com.jae.util.ResponseUtil;
 import com.jae.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
 
+import net.sf.json.JSONObject;
 
 public class QuestionAction extends ActionSupport implements ServletRequestAware {
 	/**
@@ -25,7 +28,7 @@ public class QuestionAction extends ActionSupport implements ServletRequestAware
 
 	private HttpServletRequest request;
 	private String error;
-	private Question Question;
+	private Question question;
 	private String mainPage;
 	private String s;
 	private List<Question> questions;
@@ -75,14 +78,16 @@ public class QuestionAction extends ActionSupport implements ServletRequestAware
 		this.s_Question = s_Question;
 	}
 
-	
-
 	public List<Question> getQuestions() {
 		return questions;
 	}
 
 	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
+	}
+
+	public Question getQuestion() {
+		return question;
 	}
 
 	public String getS() {
@@ -101,12 +106,8 @@ public class QuestionAction extends ActionSupport implements ServletRequestAware
 		this.mainPage = mainPage;
 	}
 
-	public Question getQuestion() {
-		return Question;
-	}
-
-	public void setQuestion(Question Question) {
-		this.Question = Question;
+	public void setQuestion(Question question) {
+		this.question = question;
 	}
 
 	public String getError() {
@@ -120,7 +121,6 @@ public class QuestionAction extends ActionSupport implements ServletRequestAware
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request;
 	}
-
 
 	public String list() {
 		mainPage = "question/questionList.jsp";
@@ -147,32 +147,31 @@ public class QuestionAction extends ActionSupport implements ServletRequestAware
 		return SUCCESS;
 	}
 
-/*	public String preSave() {
-		if (StringUtil.isEmpty(id)) {
-			title = "添加考生信息";
-		} else {
-			title = "修改考生信息";
-			Question = QuestionDao.getQuestion(id);
-		}
-		s = "2";
-		mainPage = "/Question/saveQuestion.jsp";
+	public String getQuestionMsg() {
+		mainPage = "question/question.jsp";
+		question = questionDao.getQuestion(id);
+		s = "6";
 		return SUCCESS;
 	}
 
-	public String save() throws Exception {
-		if (StringUtil.isEmpty(Question.getId())) {
-			Question.setId("JS" + DateUtil.getCurrentDateStr());
-		}
-		QuestionDao.saveQuestion(Question);
-		return "save";
-	}
-
 	public void delete() throws Exception {
-		Question = QuestionDao.getQuestion(id);
-		QuestionDao.delete(Question);
+		question = questionDao.getQuestion(id);
+		questionDao.delete(question);
 		JSONObject result = new JSONObject();
 		result.put("success", true);
 		ResponseUtil.write(result, ServletActionContext.getResponse());
-	}*/
+	}
+
+	/*
+	 * public String preSave() { if (StringUtil.isEmpty(id)) { title = "添加考生信息";
+	 * } else { title = "修改考生信息"; Question = QuestionDao.getQuestion(id); } s =
+	 * "2"; mainPage = "/Question/saveQuestion.jsp"; return SUCCESS; }
+	 * 
+	 * public String save() throws Exception { if
+	 * (StringUtil.isEmpty(Question.getId())) { Question.setId("JS" +
+	 * DateUtil.getCurrentDateStr()); } QuestionDao.saveQuestion(Question);
+	 * return "save"; }
+	 * 
+	 */
 
 }

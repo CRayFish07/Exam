@@ -94,39 +94,50 @@ body {
 	text-align: center;
 }
 
-.updatePassword{
+.updatePassword {
 	height: auto !important;
 	min-height: 500px;
 }
 
-.updatePassword .title{
+.updatePassword .title {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	text-align: center;
 	font-size: 30px;
 }
 
-.updatePassword table{
+.updatePassword table {
 	width: 40%;
 	text-align: center;
 }
-.examList .search{
+
+.examList .search {
 	margin-bottom: 20px;
 }
-.examList .add{
+
+.examList .add {
 	margin-bottom: 15px;
-	float:right;
+	float: right;
 }
 
-.saveStudent table{
+.saveStudent table {
 	width: 45%;
 }
 
-.savePaper table{
+.savePaper table {
 	width: 35%
 }
 
-.savePaper label{
+.savePaper label {
 	margin-top: 5px;
 	font-size: 17px;
+}
+
+.questionMsg table {
+	width: 40%;
+}
+
+.questionMsg label{
+	margin-top: 8px;
+	font-size: 15px;
 }
