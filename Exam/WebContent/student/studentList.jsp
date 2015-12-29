@@ -25,12 +25,12 @@
 		<div align="center" class="search">
 			<div class="form-group">
 				<label >考号:</label> <input type="text"
-					class="form-control" id="s_student.id" name="s_student.id" value="${s_student.id} ">
+					class="form-control" id="s_student.id" name="s_student.id" value="${s_student.id}">
 			</div>
 			&nbsp;
 			<div class="form-group">
 				<label >姓名:</label> <input type="text"
-					class="form-control" id="s_student.name" name="s_student.name" value="${s_student.name }">
+					class="form-control" id="s_student.name" name="s_student.name" value="${s_student.name}">
 			</div>
 			<button type="submit" class="btn btn-primary">查询</button>
 		</div>

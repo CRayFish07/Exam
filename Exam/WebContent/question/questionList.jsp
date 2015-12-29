@@ -23,11 +23,11 @@
 	}
 </script>
 <div class="examList">
-	<div class="title" align="center">考生信息</div>
+	<div class="title" align="center">题目信息</div>
 	<form action="question!list" method="post" class="form-inline">
 		<div align="center" class="search">
 			<div class="form-group">
-				<label>姓名:</label> <input type="text" class="form-control"
+				<label>题目名称:</label> <input type="text" class="form-control"
 					id="s_Question.subject" name="s_Question.subject"
 					value="${s_Question.subject }">
 			</div>
@@ -36,7 +36,7 @@
 	</form>
 	<div class="add">
 		<button type="submit" class="btn btn-success btn-sm"
-			onclick="javascript:window.location='question!preSave'">添加考生</button>
+			onclick="javascript:window.location='question!preSave'">添加题目</button>
 	</div>
 	<table class="table table-bordered table-hover ">
 		<tr>
@@ -62,7 +62,7 @@
 				<button type="button" class="btn btn-info"
 						onclick="javascript:window.location='question!getQuestionMsg?id=${question.id}'">查看详情</button>
 					<button type="button" class="btn btn-info"
-						onclick="javascript:window.location='student!preSave?id=${student.id}'">修改</button>
+						onclick="javascript:window.location='question!preSave?id=${question.id}'">修改</button>
 					<button type="button" class="btn btn-danger"
 						onclick="checkDelete('${question.id}')">删除</button>
 				</td>

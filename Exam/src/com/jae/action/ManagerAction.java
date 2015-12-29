@@ -81,18 +81,11 @@ public class ManagerAction extends ActionSupport implements ServletRequestAware 
 		return SUCCESS;
 	}
 	
-	/*public String save(){
-		Student student1 = studentDao.getStudent(student.getId());
-		student1.setPassword(student.getPassword());
-		studentDao.saveStudent(student1);
-		mainPage = "student/updateSuccess.jsp";
-		s="4";
-		return SUCCESS;
-	}*/
+
 	
 	public String layout(){
 		request.getSession().invalidate();
-		return "layout";
+		return "layout2";
 	}
 	
 }

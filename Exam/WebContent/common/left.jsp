@@ -3,7 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script type="text/javascript">
-	function checkClick() {
+	function checkClick(str) {
 		var sl;
 
 		document.getElementById("l5").className = "active";
@@ -15,7 +15,11 @@
 			}
 		}
 		if (confirm("确定要退出系统吗？")) {
+			if(str=="str"){
 			window.location.href = "student!layout";
+			}else{
+			window.location.href = "manager!layout";
+			}
 		} else {
 			document.getElementById("l5").className = "";
 			document.getElementById("l" + sl).className = "active";
@@ -24,7 +28,7 @@
 	}
 </script>
 <c:choose>
-<c:when test="${currentUser.flag}=='2' ">
+<c:when test="${currentUser.flag==2}">
 	<ul class="nav nav-pills nav-stacked">
 		<li role="presentation"><img alt="" src="images/logo.png">
 			<input id="sh" type="hidden" value="${s} " /></li>
@@ -37,7 +41,7 @@
 		<li id="l4" role="presentation"><a
 			class="glyphicon glyphicon-cog" href="student!preUpdate">&nbsp;密码修改</a></li>
 		<li id="l5" name="l5" role="presentation"><a
-			class="glyphicon glyphicon-off" onclick="checkClick()">&nbsp;退出系统</a></li>
+			class="glyphicon glyphicon-off" onclick="checkClick('str')">&nbsp;退出系统</a></li>
 	</ul>
 </c:when>
 <c:otherwise>
@@ -55,7 +59,7 @@
 		<li id="l6" role="presentation"><a
 			class="glyphicon glyphicon-cog" href="question!list">&nbsp;题目管理</a></li>
 		<li id="l5" name="l5" role="presentation"><a
-			class="glyphicon glyphicon-off" onclick="checkClick()">&nbsp;退出系统</a></li>
+			class="glyphicon glyphicon-off" onclick="checkClick('tr')">&nbsp;退出系统</a></li>
 	</ul>
 </c:otherwise>
 </c:choose>

@@ -26,10 +26,10 @@ public class ExamDao {
 		StringBuffer hsql = new StringBuffer();
 		hsql.append("from Exam ");
 		if(s_exam!=null&&StringUtil.isNotEmpty(s_exam.getStudent().getId())){
-			hsql.append(" and student.id = '"+s_exam.getStudent().getId()+"'");
+			hsql.append(" and student.id like '%"+s_exam.getStudent().getId()+"%'");
 		}
 		if(s_exam!=null&&StringUtil.isNotEmpty(s_exam.getStudent().getName())){
-			hsql.append(" and student.name = '"+s_exam.getStudent().getName()+"'");
+			hsql.append(" and student.name like '%"+s_exam.getStudent().getName()+"%'");
 		}
 		Query query = session.createQuery(hsql.toString().replaceFirst("and", "where"));
 		if(pb!=null){
@@ -47,10 +47,10 @@ public class ExamDao {
 		session.beginTransaction();
 		StringBuffer sql = new StringBuffer("select count(*) as total from t_exam t1 , t_student t2 where t1.studentId=t2.id");
 		if(s_exam!=null&&StringUtil.isNotEmpty(s_exam.getStudent().getId())){
-			sql.append(" and t2.id = '"+s_exam.getStudent().getId()+"'");
+			sql.append(" and t2.id like '%"+s_exam.getStudent().getId()+"%'");
 		}
 		if(s_exam!=null&&StringUtil.isNotEmpty(s_exam.getStudent().getName())){
-			sql.append(" and t2.name = '"+s_exam.getStudent().getName()+"'");
+			sql.append(" and t2.name like '%"+s_exam.getStudent().getName()+"%'");
 		}
 		Query query = session.createSQLQuery(sql.toString());
 		int i = ((BigInteger)query.uniqueResult()).intValue();

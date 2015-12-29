@@ -14,7 +14,8 @@
 	src="${pageContext.request.contextPath}/bootstrap3/js/jquery-1.11.2.min.js"></script>
 <script
 	src="${pageContext.request.contextPath}/bootstrap3/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>考试系统</title>
+<linkrel="icon"href="${pageContext.request.contextPath}/images/logo.png" type="image/x-icon"/>
 <link rel="stylesheet" href="css/style.css">
 <script type="text/javascript" src="js/jquery.js"></script>
 <%

@@ -180,9 +180,9 @@ public class ExamAction extends ActionSupport implements ServletRequestAware {
 		}else{
 			session.setAttribute("s_exam", s_exam);
 		}
-		PageBean pb = new PageBean(Integer.parseInt(page), 5);
+		PageBean pb = new PageBean(Integer.parseInt(page),5);
 		int count = examDao.count(s_exam);
-		pageCode = PageUtil.genPagation(request.getContextPath()+"/exam!getList", count, Integer.parseInt(page), 5);
+		pageCode = PageUtil.genPagation(request.getContextPath()+"/exam!getList", count, Integer.parseInt(page),5);
 		exams = examDao.list(s_exam, pb);
 		mainPage = "exam/allExamList.jsp";
 		s="3";

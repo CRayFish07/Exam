@@ -8,8 +8,10 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 
+import com.jae.dao.PaperDao;
 import com.jae.dao.QuestionDao;
 import com.jae.model.PageBean;
+import com.jae.model.Paper;
 import com.jae.model.Question;
 import com.jae.util.PageUtil;
 import com.jae.util.ResponseUtil;
@@ -25,6 +27,7 @@ public class QuestionAction extends ActionSupport implements ServletRequestAware
 	private static final long serialVersionUID = 1L;
 
 	private QuestionDao questionDao = new QuestionDao();
+	private PaperDao paperDao = new PaperDao();
 
 	private HttpServletRequest request;
 	private String error;
@@ -37,6 +40,15 @@ public class QuestionAction extends ActionSupport implements ServletRequestAware
 	private String pageCode;
 	private String title;
 	private String id;
+	private List<Paper> papers;
+
+	public List<Paper> getPapers() {
+		return papers;
+	}
+
+	public void setPapers(List<Paper> papers) {
+		this.papers = papers;
+	}
 
 	public String getId() {
 		return id;
@@ -162,16 +174,25 @@ public class QuestionAction extends ActionSupport implements ServletRequestAware
 		ResponseUtil.write(result, ServletActionContext.getResponse());
 	}
 
-	/*
-	 * public String preSave() { if (StringUtil.isEmpty(id)) { title = "添加考生信息";
-	 * } else { title = "修改考生信息"; Question = QuestionDao.getQuestion(id); } s =
-	 * "2"; mainPage = "/Question/saveQuestion.jsp"; return SUCCESS; }
-	 * 
-	 * public String save() throws Exception { if
-	 * (StringUtil.isEmpty(Question.getId())) { Question.setId("JS" +
-	 * DateUtil.getCurrentDateStr()); } QuestionDao.saveQuestion(Question);
-	 * return "save"; }
-	 * 
-	 */
+	public String preSave() {
+		papers = paperDao.list();
+		if (StringUtil.isEmpty(id)) {
+			title = "添加题目信息";
+		} else {
+			title = "修改题目信息";
+			question = questionDao.getQuestion(id);
+		}
+		s = "6";
+		mainPage = "/question/questionSave.jsp";
+		return SUCCESS;
+	}
+
+	public String save() throws Exception {
+		if (StringUtil.isNotEmpty(id)) {
+			question.setId(Integer.parseInt(id));
+		}
+		questionDao.save(question);
+		return "save";
+	}
 
 }

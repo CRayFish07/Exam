@@ -16,7 +16,7 @@
 			<action name="manager" class="com.jae.action.ManagerAction">
 				<result name="success">/main.jsp</result>
 				<result name="error">/login2.jsp</result>
-				<result name="layout" type="redirect">/login2.jsp</result>
+				<result name="layout2" type="redirect">/login2.jsp</result>
 			</action>
 			<action name="paper" class="com.jae.action.PaperAction">
 				<result name="success">/main.jsp</result>
@@ -27,6 +27,7 @@
 			</action>
 			<action name="question" class="com.jae.action.QuestionAction">
 				<result name="success">/main.jsp</result>
+				<result name="save" type="redirectAction">/question!list</result>
 			</action>
 	</package>
 	

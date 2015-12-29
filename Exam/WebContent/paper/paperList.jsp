@@ -12,7 +12,7 @@
 									alert(result.error);
 								} else {
 									alert("删除成功！");
-									window.location.href = "${pageContext.request.contextPath}/paper!paperList";
+									window.location.href ="${pageContext.request.contextPath}/paper!paperList";
 
 								}
 							});
